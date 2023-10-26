@@ -17,15 +17,7 @@ def get_teams():
 def get_lineups(team_id):
     return teamdashlineups.TeamDashLineups(team_id=team_id, season="2023-24").get_json()
 
-@app.route("/api/leauge_leaders")
+@app.route("/api/leaugeleaders")
 def get_leauge_leaders():
-    top_500 = leagueleaders.LeagueLeaders(
-        per_mode_simple='PerGame',
-        season='2023-24',
-        season_type_all_star='Regular Season',
-        stat_category_abbreviation='PTS'
-    ).get_json()[:500]
-    # top_500_avg = top_500.groupby(['player_name', 'player_id']).mean()[[
-    #     'min', 'fgm', 'fga', 'ftm', 'fta', 'pts', 'fg3m', 'fg3a', 'gp'
-    # ]]
+    top_500 = leagueleaders.LeagueLeaders().get_json()
     return top_500

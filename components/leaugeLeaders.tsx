@@ -5,11 +5,16 @@ export default function LeagueLeaders() {
     const [leaderData, setLeaderData] = useState([]);
 
     async function fetchLeagueLeaders () {
-        console.log('fetching league leaders')
-        const response = await fetch('/api/league_leaders');
-        const data = await response.json();
-        console.log('league leader data', data)
-        setLeaderData(data);
+        try{
+            console.log('fetching league leaders')
+            const response = await fetch('/api/leagueleaders');
+            console.log('response', response )
+            const data = await response.json();
+            console.log('league leader data', data)
+            setLeaderData(data);
+        } catch (error) {
+            console.log('error', error)
+        }
     }
 
     useEffect(() => {
