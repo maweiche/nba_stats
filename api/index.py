@@ -17,7 +17,11 @@ def get_teams():
 def get_lineups(team_id):
     return teamdashlineups.TeamDashLineups(team_id=team_id, season="2023-24").get_json()
 
-@app.route("/api/leaugeleaders")
+@app.route("/api/leagueleaders")
 def get_leauge_leaders():
-    top_500 = leagueleaders.LeagueLeaders().get_json()
-    return top_500
+    return leagueleaders.LeagueLeaders(
+        per_mode48='PerGame',
+        season='2023-24',
+        season_type_all_star='Regular Season',
+        stat_category_abbreviation='PTS'
+    ).get_json()
