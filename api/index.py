@@ -1,6 +1,7 @@
 from flask import Flask
 from nba_api.stats.static import teams
 from nba_api.stats.endpoints import teamdashlineups
+from nba_api.stats.endpoints import teamdashlineups
 
 app = Flask(__name__)
 
@@ -12,6 +13,6 @@ def hello_world():
 def get_teams():
     return teams.get_teams()
 
-@app.route("/api/lineups/<team_id>")
+@app.route("/api/lineup/<team_id>")
 def get_lineups(team_id):
-    return teamdashlineups.TeamDashLineups(team_id=team_id).get_data_frames()[0].to_json()
+    return teamdashlineups.TeamDashLineups(team_id=team_id, season="2023-24").get_data_frames()[0].to_json()

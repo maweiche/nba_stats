@@ -31,28 +31,35 @@ export default function TeamList() {
 
     return (
         <div>
-            <h1>Teams</h1>
+            
             {loading && <p>Loading...</p>}
+            
+            <div>
             {!loading && !selectedTeam &&(
                 <div>
-            <ul>
-                {teams.map((team: Team) => (
-                    <li key={team.id}>
-                        {team.full_name} ({team.abbreviation}) | Founded: {team.year_founded} | 
-                        <button 
-                            onClick={() => setSelectedTeam(team.id.toString())}
-                            className="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                        >
-                            View Lineup
-                        </button>
-                    </li>
-                ))}
-            </ul>
-            
+                    <h1>Teams</h1>
+                    <ul>
+                        {teams.map((team: Team) => (
+                            <li key={team.id}>
+                                {team.full_name} ({team.abbreviation}) | Founded: {team.year_founded} | 
+                                <button 
+                                    onClick={() => {
+                                        console.log('clicked', team.id.toString()),
+                                        setSelectedTeam(team.id.toString())
+                                    }}
+                                    className="ml-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                                >
+                                    View Lineup
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+             )}
             {selectedTeam && <Lineup teamId={selectedTeam.toString()} />}
           
             </div>
-            )}
+           
         </div>
     );
 }

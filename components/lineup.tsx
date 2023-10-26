@@ -1,4 +1,3 @@
-"use client"
 import { useState, useEffect } from 'react';
 
 interface TeamLineup {
@@ -15,6 +14,7 @@ export default function Lineup(teamId: any | null) {
     const [loading, setLoading] = useState(true);
 
     async function fetchLineup () {
+        console.log('fetching lineup')
         const response = await fetch(`/api/lineup/${teamId}`);
         const data = await response.json();
         console.log('data', data)
@@ -29,17 +29,7 @@ export default function Lineup(teamId: any | null) {
 
     return (
         <div>
-            <h1>Lineup</h1>
-            {loading && <p>Loading...</p>}
-            {!loading && (
-            <ul>
-                {lineup.map((lineup: TeamLineup) => (
-                    <li key={lineup.id}>
-                        {lineup.name} ({lineup.position}) | Height: {lineup.height_feet} feet {lineup.height_inches} inches | Weight: {lineup.weight_pounds} pounds
-                    </li>
-                ))}
-            </ul>
-            )}
+            {loading && <div>Loading...</div>}
         </div>
     );
 }
