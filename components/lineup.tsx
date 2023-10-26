@@ -1,3 +1,4 @@
+"use client"
 import { useState, useEffect } from 'react';
 
 interface TeamLineup {
@@ -14,8 +15,9 @@ export default function Lineup(teamId: any | null) {
     const [loading, setLoading] = useState(true);
 
     async function fetchLineup () {
-        console.log('fetching lineup')
-        const response = await fetch(`/api/lineup/${teamId}`);
+        const team = teamId.teamId;
+        console.log('fetching lineup', teamId.teamId)
+        const response = await fetch(`/api/lineup/${team}`);
         const data = await response.json();
         console.log('data', data)
         setLineup(data);

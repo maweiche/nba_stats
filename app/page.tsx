@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import TeamList from '@/components/teams'
+import LeagueLeaders from '@/components/leaugeLeaders'
 
 export default function Home() {
   return (
@@ -112,6 +113,7 @@ export default function Home() {
           </p>
         </a>
       </div> */}
+      <LeagueLeaders />
       <TeamList />
     </main>
   )
