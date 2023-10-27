@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import TeamList from '@/components/teams'
 import LeagueLeaders from '@/components/leaugeLeaders'
+import Scoreboard from '@/components/scoreboard'
 
 export default function Home() {
   return (
@@ -113,8 +114,11 @@ export default function Home() {
           </p>
         </a>
       </div> */}
-      <LeagueLeaders />
-      <TeamList />
+      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
+        <LeagueLeaders />
+        <TeamList />
+        <Scoreboard />
+      </div>
     </main>
   )
 }

@@ -13,81 +13,31 @@ export default function LeagueLeaders() {
         // leaderData 
         console.log('headers', leaderDataHeaders)
         // headers
-        // 0
-        // : 
-        // "PLAYER_ID"
-        // 1
-        // : 
-        // "RANK"
-        // 2
-        // : 
-        // "PLAYER"
-        // 3
-        // : 
-        // "TEAM_ID"
-        // 4
-        // : 
-        // "TEAM"
-        // 5
-        // : 
-        // "GP"
-        // 6
-        // : 
-        // "MIN"
-        // 7
-        // : 
-        // "FGM"
-        // 8
-        // : 
-        // "FGA"
-        // 9
-        // : 
-        // "FG_PCT"
-        // 10
-        // : 
-        // "FG3M"
-        // 11
-        // : 
-        // "FG3A"
-        // 12
-        // : 
-        // "FG3_PCT"
-        // 13
-        // : 
-        // "FTM"
-        // 14
-        // : 
-        // "FTA"
-        // 15
-        // : 
-        // "FT_PCT"
-        // 16
-        // : 
-        // "OREB"
-        // 17
-        // : 
-        // "DREB"
-        // 18
-        // : 
-        // "REB"
-        // 19
-        // : 
-        // "AST"
-        // 20
-        // : 
-        // "STL"
-        // 21
-        // : 
-        // "BLK"
-        // 22
-        // : 
-        // "TOV"
-        // 23
-        // : 
-        // "PTS"
-        // 24
-        // : 
-        // "EFF"
+        // 0: "PLAYER_ID"
+        // 1: "RANK"
+        // 2: "PLAYER"
+        // 3: "TEAM_ID"
+        // 4:"TEAM"
+        // 5: "GP"
+        // 6: "MIN"
+        // 7: "FGM"
+        // 8: "FGA"
+        // 9: "FG_PCT"
+        // 10: "FG3M"
+        // 11: "FG3A"
+        // 12: "FG3_PCT"
+        // 13: "FTM"
+        // 14: "FTA"
+        // 15: "FT_PCT"
+        // 16: "OREB"
+        // 17: "DREB"
+        // 18: "REB"
+        // 19: "AST"
+        // 20: "STL"
+        // 21:"BLK"
+        // 22: "TOV"
+        // 23:"PTS"
+        // 24: "EFF"
         console.log('leaderData', leaderData)
     
         return (
@@ -143,9 +93,17 @@ export default function LeagueLeaders() {
         <div>
             <button
                 onClick={() => setShowLeagueLeaders(!showLeagueLeaders)}
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             >
-                {!showLeagueLeaders ? 'Show' : 'Hide'} League Leaders
+                <h2 className={`mb-3 text-2xl font-semibold`}>
+                    {!showLeagueLeaders ? 'League Leaders' : 'Hide League Leaders'}  {' '} 
+                    <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+                        -&gt;
+                    </span>
+                </h2>
+                <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
+                    View the top 10 players in each statistical category.
+                </p>
             </button>
             {showLeagueLeaders && (
                 <div>
